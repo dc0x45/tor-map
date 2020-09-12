@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#This script outputs to CSV format, use the command "bash locateExits.sh | tee exitData.csv" to both see the output in stdout and write to the CSV file
+#This script outputs to CSV format, use the command "bash locateGuards.sh | tee guardData.csv" to both see the output in stdout and write to the CSV file
 
 rawList=$(curl -s "https://onionoo.torproject.org/details?search=flag:Guard%20running:true&fields=or_addresses")
 
