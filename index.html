@@ -51,45 +51,39 @@
      iconAnchor:[12,24],
      popupAnchor:[16,-25]
  });
-  // display Carto basemap tiles with light features and labels
+  
   var CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
 	subdomains: 'abcd',
 	maxZoom: 19
-}).addTo(map); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
-  // controlLayers.addBaseLayer(light, 'Carto Light basemap');
-
-  // https://leaflet-extras.github.io/leaflet-providers/preview/
-
-  // upload CSV file from local directory and display latitude and longitude coordinates as default blue markers on map
-
-	  
+}).addTo(map);
+ 	  
   var entryLayer = L.geoJson(null, {
     pointToLayer: function(feature, latlng) {
       return L.marker(latlng, {icon: redIcon});
       },
     onEachFeature: function(feature, layer) {
-      layer.bindPopup("Internet Serivce Provider:"+feature.properties.ISP+"\n Using a hosting provider:"+feature.properties.Hosting+"\n IP Address:"+feature.properties.IP);
-      }
+      layer.bindPopup("This entry nodes ISP is: '"+feature.properties.ISP+(feature.properties.value === true) ? '. and uses a (paid?) hosting provider.' : '. and does not use a hosting provider.';
++"\n IP Address:"+feature.properties.IP);      
+    }
   });
    var exitLayer = L.geoJson(null, {
     pointToLayer: function(feature, latlng) {
       return L.marker(latlng, {icon: blueIcon});
       },
     onEachFeature: function(feature, layer) {
-      layer.bindPopup("Internet Serivce Provider:"+feature.properties.ISP+"\n Using a hosting provider:"+feature.properties.Hosting+"\n IP Address:"+feature.properties.IP);
-      }
+      layer.bindPopup("This exit nodes ISP is: '"+feature.properties.ISP+(feature.properties.value === true) ? '. and uses a (paid?) hosting provider.' : '. and does not use a hosting provider.';
++"\n IP Address:"+feature.properties.IP);      
+    }
   });
 	  
   var runLayer1 = omnivore.csv('exitData.csv', null, entryLayer)
       .on('ready', function() {
-          // http://leafletjs.com/reference.html#map-fitbounds
           map.fitBounds(runLayer1.getBounds());
       })
       .addTo(map);
   var runLayer2 = omnivore.csv('enterData.csv', null, exitLayer)
       .on('ready', function() {
-          // http://leafletjs.com/reference.html#map-fitbounds
           map.fitBounds(runLayer2.getBounds());
       })
       .addTo(map);
