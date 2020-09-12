@@ -40,15 +40,12 @@
   }).addTo(map);
   */ 
   
-  var legend = L.control({position: 'bottomright'});
+var legend = L.control({position: 'bottomleft'});
+    legend.onAdd = function (map) {
 
-legend.onAdd = function (map) {
-	
-    var info = L.DomUtil.create('div', 'info legend');
-        info.innerHTML = "<h1> Hello there! This map consists of TOR Entry Nodes in blue, and Exit Nodes in red. </h1>"
-    }
-
-    return info;
+    var div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML = "<h3> Hello, this map serves to visualize TOR entry and exit nodes. <br /> Entry nodes are in blue, exit nodes are in red."
+    return div;
 };
 
 legend.addTo(map);	
