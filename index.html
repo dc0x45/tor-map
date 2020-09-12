@@ -71,7 +71,7 @@ legend.addTo(map);
 	maxZoom: 19
 }).addTo(map);	  
   
-   var exitLayer = L.geoJson(null, {
+   var exitLayer = L.geoJson(exits, {
     pointToLayer: function(feature, latlng) {
       return L.marker(latlng, {icon: redIcon});
       },
@@ -83,7 +83,7 @@ legend.addTo(map);
       layer.bindPopup("This exit nodes ISP is: <i>" + feature.properties.ISP + "</i>" + isHosted + "<br /> IP Address: " + feature.properties.IP);      
     }
   });
-   var guardLayer = L.geoJson(null, {
+   var guardLayer = L.geoJson(guards, {
     pointToLayer: function(feature, latlng) {
       return L.marker(latlng, {icon: blueIcon});
       },
