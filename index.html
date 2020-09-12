@@ -63,8 +63,7 @@
       return L.marker(latlng, {icon: redIcon});
       },
     onEachFeature: function(feature, layer) {
-      layer.bindPopup("This entry nodes ISP is: '"+feature.properties.ISP+(feature.properties.value === true) ? '. and uses a (paid?) hosting provider.' : '. and does not use a hosting provider.';
-+"\n IP Address:"+feature.properties.IP);      
+      layer.bindPopup("This entry nodes ISP is: "+feature.properties.ISP+" \n IP Address: "+feature.properties.IP);      
     }
   });
    var exitLayer = L.geoJson(null, {
@@ -72,7 +71,7 @@
       return L.marker(latlng, {icon: blueIcon});
       },
     onEachFeature: function(feature, layer) {
-      layer.bindPopup("This exit nodes ISP is: '"+feature.properties.ISP+(feature.properties.value === true) ? '. and uses a (paid?) hosting provider.' : '. and does not use a hosting provider.';
+      layer.bindPopup("This exit nodes ISP is: '"+feature.properties.ISP+(feature.properties.value === true) ? ''. and uses a (paid?) hosting provider.' : '. and does not use a hosting provider.';
 +"\n IP Address:"+feature.properties.IP);      
     }
   });
