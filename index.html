@@ -7,9 +7,7 @@
 
   <!-- Load Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
-  <link rel="stylesheet" href="dist/css/leaflet.extra-markers.min.css">
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-  <script src="js/leaflet.extra-markers.min.js"></script>
 
 
   <!-- Load Omnivore -->
@@ -38,13 +36,6 @@
    position: "topright",
    collapsed: false
   }).addTo(map);
-
-  var redMarker = L.ExtraMarkers.icon({
-    icon: 'fa-coffee',
-    markerColor: 'red',
-    shape: 'square',
-    prefix: 'fa'
-  });
   */ 
   var redIcon = new L.Icon({
      iconUrl: 'dist/red.png'
