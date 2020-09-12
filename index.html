@@ -57,12 +57,11 @@ function typewriter()
 {
  sContents =  ' ';
  iRow = Math.max(0, iIndex-iScrollAt);
- var destination = div;
  
  while ( iRow < iIndex ) {
   sContents += aText[iRow++] + '<br />';
  }
- destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
+ div.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
  if ( iTextPos++ == iArrLength ) {
   iTextPos = 0;
   iIndex++;
