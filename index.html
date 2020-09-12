@@ -67,7 +67,7 @@
       if (feature.properties.Hosting == true || feature.properties.Hosting == 'true') {
 	isHosted = ' and uses a paid hosting provider.';
       }
-      llayer.bindPopup("This exit nodes ISP is: <i>" + feature.properties.ISP + "</i>" + isHosted + "<br /> IP Address: " + feature.properties.IP);      
+      layer.bindPopup("This exit nodes ISP is: <i>" + feature.properties.ISP + "</i>" + isHosted + "<br /> IP Address: " + feature.properties.IP);      
     }
   });
    var guardLayer = L.geoJson(null, {
