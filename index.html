@@ -8,7 +8,7 @@
   <!-- Load Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-
+  
 
   <!-- Load Omnivore -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.min.js'></script>
@@ -39,9 +39,9 @@
   */ 
   var redIcon = new L.Icon({
      iconUrl: 'dist/img/red.png',
-     iconSize: [38, 95],
-     iconAnchor: [22, 94],
-     popupAnchor: [-3, -76],
+     iconSize: [35, 45],
+     iconAnchor:[17,42],
+     popupAnchor:[1,-32]
  });
   // display Carto basemap tiles with light features and labels
   var CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -56,6 +56,7 @@
   // upload CSV file from local directory and display latitude and longitude coordinates as default blue markers on map
   
 	  L.marker([51.5, -0.09], {icon: redIcon}).addTo(map);
+	  L.marker([60.5, -0.09]).addTo(map);
 
 	  
     var entryLayer = L.geoJson(null, {
