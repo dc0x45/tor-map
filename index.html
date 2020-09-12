@@ -71,9 +71,11 @@
       return L.marker(latlng, {icon: blueIcon});
       },
     onEachFeature: function(feature, layer) {
-      var isHosted = (feature.properties.Hosting) ? ' and uses a paid hosting provider.' : ' and does not use a hosting provider.';
-
-      layer.bindPopup("This exit nodes ISP is: "+feature.properties.ISP+isHosted+"\n IP Address: "+feature.properties.IP);      
+      var isHosted = ' and does not use a hosting provider.';
+      if (feature.properties.Hosting) {
+	isHosted = ' and uses a paid hosting provider.';
+      }
+      layer.bindPopup("This exit nodes ISP is: "+feature.properties.ISP+isHosted+"<br /> IP Address: "+feature.properties.IP);      
     }
   });
 	  
