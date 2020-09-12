@@ -63,9 +63,9 @@
       }
   });
    var exitLayer = L.geoJson(null, {
-    style: function(feature) {
-        return { icon: redMarker };
-      }
+    pointToLayer: function(feature, latlng) {
+                return L.marker(latlng, {icon: redMarker});
+            },
     onEachFeature: function(feature, layer) {
       layer.bindPopup(feature.properties.Title);
       }
