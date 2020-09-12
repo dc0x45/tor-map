@@ -38,7 +38,10 @@
   }).addTo(map);
   */ 
   var redIcon = new L.Icon({
-     iconUrl: 'dist/red.png'
+     iconUrl: 'dist/img/red.png',
+     iconSize: [38, 95],
+     iconAnchor: [22, 94],
+     popupAnchor: [-3, -76],
  });
   // display Carto basemap tiles with light features and labels
   var CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
