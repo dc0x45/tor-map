@@ -64,7 +64,7 @@
       },
     onEachFeature: function(feature, layer) {
       var isHosted = ' and does not use a hosting provider.';
-      if (feature.properties.Hosting == true) {
+      if (feature.properties.Hosting == true || feature.properties.Hosting = 'true') {
 	isHosted = ' and uses a paid hosting provider.';
       }
       layer.bindPopup("This exit nodes ISP is: " + feature.properties.ISP + isHosted + "<br /> IP Address: " + feature.properties.IP);      
@@ -76,7 +76,7 @@
       },
     onEachFeature: function(feature, layer) {
       var isHosted = ' and does not use a hosting provider.';
-      if (feature.properties.Hosting == true) {
+      if (feature.properties.Hosting == true || feature.properties.Hosting = 'true') {
 	isHosted = ' and uses a paid hosting provider.';
       }
       layer.bindPopup("This exit nodes ISP is: " + feature.properties.ISP + isHosted + "<br /> IP Address: " + feature.properties.IP);      
