@@ -54,9 +54,9 @@ legend.addTo(map);
 
   var redIcon = new L.Icon({
      iconUrl: 'dist/img/red.png',
-     iconSize: [32, 32],
-     iconAnchor:[16,32],
-     popupAnchor:[16,-32]
+     iconSize: [24, 24],
+     iconAnchor:[12,24],
+     popupAnchor:[12,-25]
  });
   var blueIcon = new L.Icon({
      iconUrl: 'dist/img/blue.png',
@@ -92,7 +92,7 @@ legend.addTo(map);
       if (feature.properties.Hosting == true || feature.properties.Hosting == 'true') {
 	isHosted = ' and uses a paid hosting provider.';
       }
-      layer.bindPopup("This exit nodes ISP is: <i>" + feature.properties.ISP + "</i>" + isHosted + "<br /> IP Address: " + feature.properties.IP);      
+      layer.bindPopup("This guard (entry) nodes ISP is: <i>" + feature.properties.ISP + "</i>" + isHosted + "<br /> IP Address: " + feature.properties.IP);      
     }
   });
 	  
