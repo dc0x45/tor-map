@@ -42,13 +42,13 @@
   
   var legend = L.control({position: 'bottomright'});
 
-  legend.onAdd = function (map) {
-
-    var info = L.DomUtil.create('div', 'info legend'),
+legend.onAdd = function (map) {
+	
+    var info = L.DomUtil.create('div', 'info legend');
         info.innerHTML = "<h1> Hello there! This map consists of TOR Entry Nodes in blue, and Exit Nodes in red. </h1>"
     }
 
-    return div;
+    return info;
 };
 
 legend.addTo(map);	
