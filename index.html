@@ -33,11 +33,7 @@
     maxZoom: 18
   });
 
-  //Control panel to display map layers 
-  var controlLayers = L.control.layers( null, null, {
-   position: "bottomleft",
-   collapsed: false
-  }).addTo(map);
+
   
   
 var legend = L.control({position: 'topright'});
@@ -71,7 +67,7 @@ legend.addTo(map);
 	maxZoom: 19
 }).addTo(map);	  
   
-   var exitLayer = L.geoJson(exits, {
+   var exitLayer = L.geoJson(null, {
     pointToLayer: function(feature, latlng) {
       return L.marker(latlng, {icon: redIcon});
       },
@@ -83,7 +79,7 @@ legend.addTo(map);
       layer.bindPopup("This exit nodes ISP is: <i>" + feature.properties.ISP + "</i>" + isHosted + "<br /> IP Address: " + feature.properties.IP);      
     }
   });
-   var guardLayer = L.geoJson(guards, {
+   var guardLayer = L.geoJson(null, {
     pointToLayer: function(feature, latlng) {
       return L.marker(latlng, {icon: blueIcon});
       },
@@ -95,6 +91,16 @@ legend.addTo(map);
       layer.bindPopup("This guard (entry) nodes ISP is: <i>" + feature.properties.ISP + "</i>" + isHosted + "<br /> IP Address: " + feature.properties.IP);      
     }
   });
+
+var overlays = {
+    "Show Guard/Entry Nodes": guardLayer,
+    "Show Exit Nodes": exitLayer
+};
+  //Control panel to display map layers 
+  var controlLayers = L.control.layers( null, null, {
+   position: "bottomleft",
+   collapsed: false
+  }).addTo(map);
 	  
   var runLayer1 = omnivore.csv('dist/data/exitData.csv', null, exitLayer)
       .on('ready', function() {
