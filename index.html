@@ -7,7 +7,10 @@
 
   <!-- Load Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
+  <link rel="stylesheet" href="css/leaflet.extra-markers.min.css">
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+  <script src="js/leaflet.extra-markers.min.js"></script>
+
 
   <!-- Load Omnivore -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.min.js'></script>
@@ -36,6 +39,13 @@
    collapsed: false
   }).addTo(map);
 
+  var redMarker = L.ExtraMarkers.icon({
+    icon: 'fa-coffee',
+    markerColor: 'red',
+    shape: 'square',
+    prefix: 'fa'
+  });
+	  
   // display Carto basemap tiles with light features and labels
   var CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
