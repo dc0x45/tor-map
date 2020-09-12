@@ -60,11 +60,11 @@
  	  
   var entryLayer = L.geoJson(null, {
     pointToLayer: function(feature, latlng) {
-      return L.marker(latlng, {icon: redIcon});
+      return L.marker(latlng, {icon: blueIcon});
       },
     onEachFeature: function(feature, layer) {
       var isHosted = ' and does not use a hosting provider.';
-      if (feature.properties.Hosting) {
+      if (feature.properties.Hosting == true) {
 	isHosted = ' and uses a paid hosting provider.';
       }
       layer.bindPopup("This exit nodes ISP is: " + feature.properties.ISP + isHosted + "<br /> IP Address: " + feature.properties.IP);      
@@ -72,7 +72,7 @@
   });
    var exitLayer = L.geoJson(null, {
     pointToLayer: function(feature, latlng) {
-      return L.marker(latlng, {icon: blueIcon});
+      return L.marker(latlng, {icon: redIcon});
       },
     onEachFeature: function(feature, layer) {
       var isHosted = ' and does not use a hosting provider.';
