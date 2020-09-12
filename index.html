@@ -63,7 +63,11 @@
       return L.marker(latlng, {icon: redIcon});
       },
     onEachFeature: function(feature, layer) {
-      layer.bindPopup("This entry nodes ISP is: "+feature.properties.ISP+" \n IP Address: "+feature.properties.IP);      
+      var isHosted = ' and does not use a hosting provider.';
+      if (feature.properties.Hosting) {
+	isHosted = ' and uses a paid hosting provider.';
+      }
+      layer.bindPopup("This exit nodes ISP is: " + feature.properties.ISP + isHosted + "<br /> IP Address: " + feature.properties.IP);      
     }
   });
    var exitLayer = L.geoJson(null, {
@@ -75,16 +79,16 @@
       if (feature.properties.Hosting) {
 	isHosted = ' and uses a paid hosting provider.';
       }
-      layer.bindPopup("This exit nodes ISP is: "+feature.properties.ISP+isHosted+"<br /> IP Address: "+feature.properties.IP);      
+      layer.bindPopup("This exit nodes ISP is: " + feature.properties.ISP + isHosted + "<br /> IP Address: " + feature.properties.IP);      
     }
   });
 	  
-  var runLayer1 = omnivore.csv('exitData.csv', null, entryLayer)
+  var runLayer1 = omnivore.csv('exitData.csv', null, exitLayer)
       .on('ready', function() {
           map.fitBounds(runLayer1.getBounds());
       })
       .addTo(map);
-  var runLayer2 = omnivore.csv('enterData.csv', null, exitLayer)
+  var runLayer2 = omnivore.csv('enterData.csv', null, entryLayer)
       .on('ready', function() {
           map.fitBounds(runLayer2.getBounds());
       })
