@@ -83,12 +83,12 @@
     }
   });
 	  
-  var runLayer1 = omnivore.csv('exitData.csv', null, exitLayer)
+  var runLayer1 = omnivore.csv('dist/data/exitData.csv', null, exitLayer)
       .on('ready', function() {
           map.fitBounds(runLayer1.getBounds());
       })
       .addTo(map);
-  var runLayer2 = omnivore.csv('guardData.csv', null, guardLayer)
+  var runLayer2 = omnivore.csv('dist/data/guardData.csv', null, guardLayer)
       .on('ready', function() {
           map.fitBounds(runLayer2.getBounds());
       })
