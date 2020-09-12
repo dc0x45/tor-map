@@ -39,6 +39,22 @@
    collapsed: false
   }).addTo(map);
   */ 
+  
+  var legend = L.control({position: 'bottomright'});
+
+  legend.onAdd = function (map) {
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        div.innerHTML =
+            "<h1> Hello there! This map consists of TOR Entry Nodes in blue, and Exit Nodes in red. </h1>"
+    }
+
+    return div;
+};
+
+legend.addTo(map);	
+  
+
   var redIcon = new L.Icon({
      iconUrl: 'dist/img/red.png',
      iconSize: [32, 32],
