@@ -60,7 +60,11 @@
   // https://leaflet-extras.github.io/leaflet-providers/preview/
 
   // upload CSV file from local directory and display latitude and longitude coordinates as default blue markers on map
-  var entryLayer = L.geoJson(null, {
+  
+	  L.marker([51.5, -0.09], {icon: redIcon}).addTo(map);
+
+	  
+    var entryLayer = L.geoJson(null, {
     onEachFeature: function(feature, layer) {
       layer.bindPopup(feature.properties.Title);
       }
@@ -73,7 +77,7 @@
       layer.bindPopup(feature.properties.Title);
       }
   });
-
+	  
   var runLayer1 = omnivore.csv('exitData.csv', null, entryLayer)
       .on('ready', function() {
           // http://leafletjs.com/reference.html#map-fitbounds
